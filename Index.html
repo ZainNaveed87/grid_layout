@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>9 Grid Layouts</title>
+  <style>
+    
+    .main-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;              
+      max-width: 1200px;      
+      margin: 0 auto;        
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    
+    .layout {
+      background-color: #eee;
+      border: 2px solid #999;
+      width: 300px;
+      height: 180px;
+      display: grid;
+      gap: 5px;     
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .box {
+      background-color: #fff;
+      border: 1px solid #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .layout1 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr; 
+    }
+    .layout1 .box1 { grid-column: 1; grid-row: 1; }
+    .layout1 .box2 { grid-column: 2; grid-row: 1; }
+    .layout1 .box3 { grid-column: 3; grid-row: 1; }
+
+    .layout2 {
+      grid-template-columns: repeat(3, 1fr); 
+      grid-template-rows: repeat(2, 1fr); 
+    }
+    .layout2 .box1 { grid-column: 3;       grid-row: 1; }
+    .layout2 .box2 { grid-column: 1 / 3;   grid-row: 1; }
+    .layout2 .box3 { grid-column: 1;       grid-row: 2; }
+    .layout2 .box4 { grid-column: 2;       grid-row: 2; }
+    .layout2 .box5 { grid-column: 3;       grid-row: 2; }
+
+    .layout3 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .layout3 .box1  { grid-column: 1; grid-row: 1; }
+    .layout3 .box2  { grid-column: 2; grid-row: 1; }
+    .layout3 .box3  { grid-column: 3; grid-row: 1; }
+    .layout3 .box4  { grid-column: 1; grid-row: 2; }
+    .layout3 .box5  { grid-column: 2; grid-row: 2; }
+    .layout3 .box6  { grid-column: 3; grid-row: 2; }
+    .layout3 .box7  { grid-column: 1; grid-row: 3; }
+    .layout3 .box8  { grid-column: 2; grid-row: 3; }
+    .layout3 .box9  { grid-column: 3; grid-row: 3; }
+
+   .grid-container4{
+      border: 2px solid #999;
+      width: 300px;
+      height: 190px;
+      display: grid;
+      gap: 5px;     
+      padding: 5px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 60px);
+      
+   }
+   .grid-container8{
+      border: 2px solid #999;
+      width: 300px;
+      height: 180px;
+      display: grid;  
+      padding: 5px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 60px);
+      
+   }
+
+   #children-32{
+   grid-column: 2/3;
+   grid-row: 1/3;
+  }
+
+  #children-35{
+    grid-row: 2/4;
+
+  }
+
+  #children-34{
+    grid-row: 2/4;
+  }
+
+  .box11{
+    grid-column: 1/2;
+    grid-row: 1/4;
+  }
+
+  .box12{
+    grid-column: 2/4;
+    grid-row:1/3 ;
+  }
+
+    .layout5 {
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 3fr; 
+    }
+    .layout5 .top-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+    .layout5 .bottom-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+
+    .layout6 {
+      grid-template-columns: 2fr 1fr; 
+      grid-template-rows: 2fr 1fr; 
+    }
+    .layout6 .box-left  { grid-column: 1; grid-row: 1 / 3; }
+    .layout6 .box-top   { grid-column: 2; grid-row: 1; }
+    .layout6 .box-bottom { grid-column: 2; grid-row: 2; }
+
+    .layout7 {
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    .layout7 .left-big {
+      grid-column: 1; 
+      grid-row: 1;
+    }
+    .layout7 .right-section {
+      display: grid;
+      grid-template-rows: 2fr 1fr; 
+      gap: 5px;
+    }
+    .layout7 .top-right {
+      background: #fff;
+      border: 1px solid #666;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+    }
+    .layout7 .bottom-right {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+
+    .layout8 {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .layout8 .box1  { grid-column: 1; grid-row: 1; }
+    .layout8 .box2  { grid-column: 2; grid-row: 1; }
+    .layout8 .box3  { grid-column: 3; grid-row: 1; }
+    .layout8 .box4  { grid-column: 4; grid-row: 1; }
+    .layout8 .box5  { grid-column: 1 / 3; grid-row: 2; }
+    .layout8 .box6  { grid-column: 3 / 5; grid-row: 2; }
+    .layout8 .box7  { grid-column: 1; grid-row: 3; }
+    .layout8 .box8  { grid-column: 2; grid-row: 3; }
+    .layout8 .box9  { grid-column: 3; grid-row: 3; }
+    .layout8 .box10 { grid-column: 4; grid-row: 3; }
+
+    .layout9 {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .layout9 .box1  { grid-column: 1;     grid-row: 1; }
+    .layout9 .box2  { grid-column: 2;     grid-row: 1; }
+    .layout9 .box3  { grid-column: 3;     grid-row: 1; }
+    .layout9 .box4  { grid-column: 4;     grid-row: 1; }
+    .layout9 .box5  { grid-column: 1 / 3; grid-row: 2; }
+    .layout9 .box6  { grid-column: 3 / 5; grid-row: 2; }
+    .layout9 .box7  { grid-column: 1;     grid-row: 3; }
+    .layout9 .box8  { grid-column: 2;     grid-row: 3; }
+    .layout9 .box9  { grid-column: 3;     grid-row: 3; }
+    .layout9 .box10 { grid-column: 4;     grid-row: 3; }
+  </style>
+</head>
+<body>
+
+<h1>All 9 Grid Layouts in One Page</h1>
+
+<div class="main-container">
+  <!-- Layout 1 -->
+  <div class="layout layout1">
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+  </div>
+
+  <!-- Layout 2 -->
+  <div class="layout layout2">
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+    <div class="box box4">Box 4</div>
+    <div class="box box5">Box 5</div>
+  </div>
+
+  <!-- Layout 3 -->
+  <div class="layout layout3">
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+    <div class="box box4">Box 4</div>
+    <div class="box box5">Box 5</div>
+    <div class="box box6">Box 6</div>
+    <div class="box box7">Box 7</div>
+    <div class="box box8">Box 8</div>
+    <div class="box box9">Box 9</div>
+  </div>
+
+  <!-- Layout 4 -->
+  <div class="grid-container4">
+    <div class="box" id="children-31">31</div>
+    <div class="box" id="children-32">32</div>
+    <div class="box" id="children-33">33</div>
+    <div class="box" id="children-34">34</div>
+    <div class="box" id="children-35">35</div>
+    <div class="box" id="children-36">36</div>
+  </div>
+
+  <!-- Layout 5 -->
+  <div class="layout layout5">
+    <div class="bottom-row">
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+      </div>
+    <div class="top-row">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+    </div>
+
+  </div>
+
+  <!-- Layout 6 -->
+  <div class="layout layout6">
+    <div class="box box-left">Left Tall</div>
+    <div class="box box-top">Top Right</div>
+    <div class="box box-bottom">Bottom Right</div>
+  </div>
+
+  <!-- Layout 7 -->
+  <div class="layout layout7">
+    <div class="box left-big">Left Big</div>
+    <div class="right-section">
+      <div class="top-right">Top Right</div>
+      <div class="bottom-right">
+        <div class="box">Btm1</div>
+        <div class="box">Btm2</div>
+        <div class="box">Btm3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layout 8 (4-2-4) -->
+  <div class="grid-container8">
+    <!-- Top row (4 boxes) -->
+    <div class="box box11">Box1</div>
+    <div class="box box12">Box2</div>
+    <div class="box box13">Box3</div>
+    <div class="box box14">Box4</div>
+    <!-- Middle row (2 wide boxes) -->
+    <div class="box box15">Box5</div>
+    <div class="box box16">Box6</div>
+    <!-- Bottom row (4 boxes) -->
+    <div class="box box17">Box7</div>
+  </div>
+
+  <!-- Layout 9  -->
+  <div class="layout layout9">
+    <!-- Top row (4 boxes) -->
+    <div class="box box1">Box1</div>
+    <div class="box box2">Box2</div>
+    <div class="box box3">Box3</div>
+    <div class="box box4">Box4</div>
+    <!-- Middle row (2 wide boxes) -->
+    <div class="box box5">Box5</div>
+    <div class="box box6">Box6</div>
+    <!-- Bottom row (4 boxes) -->
+    <div class="box box7">Box7</div>
+    <div class="box box8">Box8</div>
+    <div class="box box9">Box9</div>
+    <div class="box box10">Box10</div>
+  </div>
+
+</div>
+
+</body>
+</html>
